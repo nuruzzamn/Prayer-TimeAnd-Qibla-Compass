@@ -14,7 +14,7 @@ const Search = () => {
           placeholder="Enter a location"
           // onChange={onChangeHandle}
           // value={searchData}
-          className="w-40 text-center outline-none p-0 flex-1 rounded-full text-slate-gray"
+          className="w-40 text-center outline-none p-0 flex-1 rounded-full text-slate-gray text-sm font-normal px-2"
           required
         />
 

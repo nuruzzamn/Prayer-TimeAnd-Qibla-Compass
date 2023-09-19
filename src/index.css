@@ -20,7 +20,7 @@
   }
 
   .input {
-    @apply flex-1 leading-normal text-slate-gray outline-none border border-slate-gray bg-white rounded-full;
+    @apply flex-1 leading-3 text-slate-gray outline-none border border-slate-gray bg-white rounded-full;
   }
 }
 
