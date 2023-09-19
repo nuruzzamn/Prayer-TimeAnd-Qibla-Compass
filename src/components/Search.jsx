@@ -1,10 +1,10 @@
 import React from "react";
 
-const Search = () => {
+const Search = ({onChangeHandle, searchData, onclick}) => {
 
-  const onclick = () => {
-    console.log('click');
-  }
+  // const onclick = () => {
+  //   console.log('click');
+  // }
   return (
     <div className="bg-transparent rounded-full focus:outline-none">
       <section className="flex flex-row justify-between bg-none border border-slate-gray p-1 rounded-full">
@@ -12,8 +12,8 @@ const Search = () => {
           type="text"
           name="text"
           placeholder="Enter a location"
-          // onChange={onChangeHandle}
-          // value={searchData}
+          onChange={onChangeHandle}
+          value={searchData}
           className="w-40 text-center outline-none p-0 flex-1 rounded-full text-slate-gray text-sm font-normal px-2"
           required
         />
