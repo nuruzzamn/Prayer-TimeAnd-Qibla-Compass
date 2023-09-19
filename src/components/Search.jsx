@@ -1,8 +1,12 @@
 import React from "react";
 
 const Search = () => {
+
+  const onclick = () => {
+    console.log('click');
+  }
   return (
-    <div className="bg-transparent">
+    <div className="bg-transparent rounded-full focus:outline-none">
       <section className="flex flex-row justify-between bg-none border border-slate-gray p-1 rounded-full">
         <input
           type="text"
@@ -14,15 +18,15 @@ const Search = () => {
           required
         />
 
-        <button
-          className="hover:bg-black 
+        <span
+          className="hover:bg-black  
         bg-coral-red text-white font-semibold border-coral-red
-          flex justify-center items-center focus:outline-none gap-2 px-3 py-2 border font-montserrat text-sm leading-none rounded-full "
+          flex justify-center items-center gap-2 px-3 py-2 border font-montserrat text-sm leading-none rounded-full"
           onClick={onclick}
         >
-          {" "}
-          Search{" "}
-        </button>
+          <p className="bg-transparent cursor-pointer">Search</p>
+          
+        </span>
       </section>
     </div>
   );
