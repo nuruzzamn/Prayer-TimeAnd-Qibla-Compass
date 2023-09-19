@@ -10,33 +10,33 @@ const ShowResult = () => {
   return (
     <div className='bg-transparent font-bold text-black w-full'>
       <section className="flex flex-1 gap-5 pt-4 px-2 bg-transparent justify-evenly items-center">
-        <p className='w-16 bg-emerald-600 text-center p-1'> Fajor </p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Fajor </p>
         <img src={fajor} alt="" className='small-icon-size'/>
-        <p className='w-16 bg-emerald-600 p-1'>5.23 am</p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 p-1'>5.23 am</p>
       </section>
 
       <section className="flex flex-1 gap-5 pt-1 px-2 bg-transparent justify-evenly items-center">
-        <p className='w-16 bg-emerald-600 text-center p-1'> Johor </p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Johor </p>
         <img src={johor} alt="" className='small-icon-size'/>
-        <p className='w-16 bg-emerald-600 p-1'>5.23 am</p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 p-1'>5.23 am</p>
       </section>
 
       <section className="flex flex-1 gap-5 pt-1 px-2 bg-transparent justify-evenly items-center">
-        <p className='w-16 bg-emerald-600 text-center p-1'> Asor </p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Asor </p>
         <img src={asor} alt="" className='small-icon-size'/>
-        <p className='w-16 bg-emerald-600 p-1'>5.23 am</p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 p-1'>5.23 am</p>
       </section>
 
       <section className="flex flex-1 gap-5 pt-1 px-2 bg-transparent justify-evenly items-center">
-        <p className='w-16 bg-emerald-600 text-center p-1'> Margrib </p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Margrib </p>
         <img src={magrib} alt="" className='small-icon-size'/>
-        <p className='w-16 bg-emerald-600 p-1'>5.23 am</p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 p-1'>5.23 am</p>
       </section>
 
       <section className="flex flex-1 gap-5 pt-1 pb-4 px-2 bg-transparent justify-evenly items-center">
-        <p className='w-16 bg-emerald-600 text-center p-1'> Esha </p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Esha </p>
         <img src={esha} alt="" className='small-icon-size'/>
-        <p className='w-16 bg-emerald-600 p-1'>5.23 am</p>
+        <p className='w-16 text-white bg-blue-900 border-blue-900 p-1'>5.23 am</p>
       </section>
     </div>
   )

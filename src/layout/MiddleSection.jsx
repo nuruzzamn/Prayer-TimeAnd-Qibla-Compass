@@ -6,8 +6,8 @@ const MiddleSection = () => {
   return (
     <div className='bg-blue-900 w-full h-[70vh] flex flex-col items-center'>
       {/* <p>container</p> */}
-      <img src={bgMocca} alt="" className='sm:w-[344px] w-[288px]'/>
-      <section className='bg-transparent mt-[-180px] text-white'>
+      <img src={bgMocca} alt="" className='sm:w-[344px] w-[288px] opacity-100 object-contain'/>
+      <section className='bg-transparent mt-[-180px] sm:mt-[-210px]'>
         <SearchBar />
       </section>
 
