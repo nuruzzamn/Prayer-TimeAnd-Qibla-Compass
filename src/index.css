@@ -58,6 +58,6 @@
   }
 
   .small-icon-size{
-    @apply sm:w-6 sm:h-6 w-4 h-4
+    @apply sm:w-10 sm:h-10 w-8 h-8 bg-transparent
   }
 }
