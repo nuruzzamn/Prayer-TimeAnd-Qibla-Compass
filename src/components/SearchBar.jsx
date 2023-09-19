@@ -16,7 +16,7 @@ const SearchBar = () => {
         <p className="bg-transparent">Temperature : 14</p>
       </section>
 
-      <section className="flex flex-1 bg-transparent justify-center items-center">
+      <section className="flex flex-1 py-2 bg-transparent justify-center items-center">
         <Search />
       </section>
 
