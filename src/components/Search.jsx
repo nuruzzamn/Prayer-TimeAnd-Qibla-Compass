@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = ({onChangeHandle, searchData, onclick}) => {
+const Search = ({onChangeHandle, searchData, initialData, onclick}) => {
 
   // const onclick = () => {
   //   console.log('click');
@@ -13,7 +13,7 @@ const Search = ({onChangeHandle, searchData, onclick}) => {
           name="text"
           placeholder="Enter a location"
           onChange={onChangeHandle}
-          value={searchData}
+          value={searchData || initialData}
           className="w-40 text-center outline-none p-0 flex-1 rounded-full text-slate-gray text-sm font-normal px-2"
           required
         />
