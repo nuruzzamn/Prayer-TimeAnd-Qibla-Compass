@@ -11,46 +11,47 @@ const SearchBar = () => {
   const [data, setData] = useState({});
   const [error, setError] = useState("");
 
-  const api = `https://dailyprayer.abdulrcs.repl.co/api/${searchData || initialData}`;
+  const api = `https://dailyprayer.abdulrcs.repl.co/api/${
+    searchData || initialData
+  }`;
 
   // if(searchData ===""){
   //   setSearchData("dhaka")
   // }
 
   const notify = () =>
-  toast.error("Enter a valid Location!", {
-    position: "top-center",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    style: {
-      background: "transparent", // Change the inner side color to a transparent background
-      color: "#000", // Change the text color to black
-    },
-  });
+    toast.error("Enter a valid Location!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      style: {
+        background: "transparent", // Change the inner side color to a transparent background
+        color: "#000", // Change the text color to black
+      },
+    });
 
   const onChangeHandle = (e) => {
     setSearchData(e.target.value);
-    setInitialData("")
+    setInitialData("");
   };
 
   const onclick = () => {
     setSearchData("");
-    setInitialData("")
+    setInitialData("");
     apiDataHandle();
 
-    console.log("click");
-    console.log("error", error);
+    error && notify();
   };
 
   useEffect(() => {
     if (initialData) {
       const timer = setTimeout(() => {
         apiDataHandle();
-        setInitialData("")
+        setInitialData("");
       }, 500);
 
       return () => clearTimeout(timer);
@@ -62,23 +63,21 @@ const SearchBar = () => {
       fetch(api)
         .then((res) => {
           if (!res.ok) {
-            throw new Error('Finding error!! Enter a valid location');
+            throw new Error("Finding error!! Enter a valid location");
           } else {
             return res.json();
           }
         })
         .then((data) => {
-          console.log("Data error", data);
-          if(data?.error){
-            notify()
-          }
+          // notify()
+          setError(data.Error);
           setData(data);
         })
         .catch((error) => {
           console.log("catch", error);
-          setError(error.message); 
+          setError(error.message);
           setData({});
-          notify(); 
+          notify();
         });
     } else {
       notify();
@@ -86,27 +85,32 @@ const SearchBar = () => {
     }
   };
 
-  console.log("Find Error",data.error);
+  // console.log("Find Error",data.error);
   // Function to convert 24-hour format to AM/PM format
   const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(":");
     const parsedHours = parseInt(hours, 10);
     const ampm = parsedHours >= 12 ? "PM" : "AM";
-    const hours12 = parsedHours > 12 ? parsedHours - 12 : parsedHours === 0 ? 12 : parsedHours;
+    const hours12 =
+      parsedHours > 12
+        ? parsedHours - 12
+        : parsedHours === 0
+        ? 12
+        : parsedHours;
     return `${hours12}:${minutes} ${ampm}`;
   };
 
   const Asr = convertTo12HourFormat(data?.today?.Asr || "");
   const Dhuhr = convertTo12HourFormat(data?.today?.Dhuhr || "");
   const Fajr = convertTo12HourFormat(data?.today?.Fajr || "");
-  const Isha = convertTo12HourFormat(data?.today?.['Isha\'a'] || "");
+  const Isha = convertTo12HourFormat(data?.today?.["Isha'a"] || "");
   const Maghrib = convertTo12HourFormat(data?.today?.Maghrib || "");
 
   // console.log(Asr, Dhuhr)
 
   return (
     <div className="bg-transparent flex flex-col font-palanquin font-bold">
-       <ToastContainer />
+      <ToastContainer />
       <section className="flex flex-col flex-1 bg-transparent justify-center items-center text-lg text-white font-bold">
         <br />
         <section className="flex flex-1 bg-transparent">
@@ -134,12 +138,12 @@ const SearchBar = () => {
           Maghrib={Maghrib}
         />
       </section>
-      
-      {error && (
+
+      {/* {error && (
         <div className="text-red-500 font-bold text-center mt-2">
-          {error}
+          {error && notify()}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
