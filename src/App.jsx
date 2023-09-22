@@ -6,8 +6,8 @@ import Test from "./Test/Test";
 function App() {
   return (
     <>
-      <section className="max-container flex justify-center items-center bg-green-100 padding sm:bg-red-100">
-        <section className="max-w-screen-sm sm:padding-x pb-5 mt-[-40px] sm:mt-0 flex justify-center items-center flex-col border border-gray-300 rounded-lg shadow-2xl">
+      <section className="max-container flex justify-center items-center sm:padding">
+        <section className="max-w-screen-sm sm:padding-x pb-5 flex justify-center items-center flex-col border border-gray-300 rounded-lg shadow-2xl">
           <Header />
           <Fragment />
           <MiddleSection />
@@ -19,4 +19,3 @@ function App() {
 }
 
 export default App;
- 

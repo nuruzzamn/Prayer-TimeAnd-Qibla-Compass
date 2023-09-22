@@ -1,7 +1,6 @@
 import React from "react";
 
-const Search = ({onChangeHandle, searchData, initialData, onclick}) => {
-
+const Search = ({ onChangeHandle, searchData, initialData, onclick }) => {
   // const onclick = () => {
   //   console.log('click');
   // }
@@ -25,7 +24,6 @@ const Search = ({onChangeHandle, searchData, initialData, onclick}) => {
           onClick={onclick}
         >
           <p className="bg-transparent cursor-pointer">Search</p>
-          
         </span>
       </section>
     </div>

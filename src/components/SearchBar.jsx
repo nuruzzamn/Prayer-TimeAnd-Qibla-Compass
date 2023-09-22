@@ -70,7 +70,6 @@ const SearchBar = () => {
           }
         })
         .then((data) => {
-
           console.log(data);
           // notify()
           setError(data.Error);
@@ -109,12 +108,19 @@ const SearchBar = () => {
   const Isha = convertTo12HourFormat(data?.today?.["Isha'a"] || "");
   const Maghrib = convertTo12HourFormat(data?.today?.Maghrib || "");
 
+  // tomorrows data
+  const tAsr = convertTo12HourFormat(data?.tomorrow?.Asr || "");
+  const tDhuhr = convertTo12HourFormat(data?.tomorrow?.Dhuhr || "");
+  const tFajr = convertTo12HourFormat(data?.tomorrow?.Fajr || "");
+  const tIsha = convertTo12HourFormat(data?.tomorrow?.Ishaa || "");
+  const tMaghrib = convertTo12HourFormat(data?.tomorrow?.Maghrib || "");
+
   // console.log(Asr, Dhuhr)
 
   return (
     <div className="bg-transparent flex flex-col font-palanquin font-bold">
       <ToastContainer />
-      <section className="flex flex-col flex-1 bg-transparent justify-center items-center text-lg text-white font-bold">
+      <section className="flex flex-col flex-1 pb-16 sm:pb-0 bg-transparent justify-center items-center text-lg text-white font-bold">
         <br />
         <section className="flex flex-1 bg-transparent">
           <img src={location} alt="" className="bg-transparent" />
@@ -142,8 +148,12 @@ const SearchBar = () => {
         />
         {/* <br className="bg-blue-900 "/> */}
         <span className="w-full bg-blue-900 h-5 outline-none border-none"></span>
-        <p className="bg-blue-900 text-center text-white pb-3 text-xl">Tomorrow's prayer time</p>
-        <NextDayShowResult />
+        <p className="bg-blue-900 text-center text-white pb-3 text-xl">
+          Tomorrow's prayer time
+        </p>
+        <NextDayShowResult
+          tomorrowsPrayerTime={{ tAsr, tDhuhr, tFajr, tIsha, tMaghrib }}
+        />
       </section>
 
       {/* {error && (
