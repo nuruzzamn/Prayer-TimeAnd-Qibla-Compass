@@ -4,10 +4,10 @@ import SearchBar from "../components/SearchBar"
 
 const MiddleSection = () => {
   return (
-    <div className='bg-blue-900 w-full h-[70vh] flex flex-col items-center'>
+    <div className='bg-blue-900 w-full h-[100vh] flex flex-col items-center'>
       {/* <p>container</p> */}
-      <img src={bgMocca} alt="" className='sm:w-[344px] w-[288px] opacity-100 object-contain'/>
-      <section className='bg-transparent mt-[-180px] sm:mt-[-210px]'>
+      <img src={bgMocca} alt="" className='sm:w-[450px] max-w-[450px] opacity-100 object-contain'/>
+      <section className='bg-transparent mt-[-230px] sm:mt-[-210px]'>
         <SearchBar />
       </section>
 

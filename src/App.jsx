@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <section className="max-container flex justify-center items-center bg-green-100 padding sm:bg-red-100">
-        <section className="max-w-screen-sm sm:padding-x pb-5 flex justify-center items-center flex-col border border-gray-300 rounded-lg shadow-2xl">
+        <section className="max-w-screen-md sm:padding-x pb-5 flex justify-center items-center flex-col border border-gray-300 rounded-lg shadow-2xl">
           <Header />
           <Fragment />
           <MiddleSection />

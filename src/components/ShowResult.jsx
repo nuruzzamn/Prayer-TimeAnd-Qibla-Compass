@@ -10,7 +10,7 @@ const ShowResult = ({Asr, Dhuhr, Fajr, Isha, Maghrib}) => {
 
   // console.log("Show result",(Dhuhr==="NaN:undefined AM"? "" : Dhuhr))
   return (
-    <div className='bg-transparent font-bold text-black w-full'>
+    <div className='bg-transparent font-bold text-black w-full bg-red-800'>
       <section className="flex flex-1 gap-5 pt-4 px-2 bg-transparent justify-evenly items-center">
         <p className='w-16 text-white bg-blue-900 border-blue-900 text-center p-1'> Fajor </p>
         <img src={fajor} alt="" className='small-icon-size'/>

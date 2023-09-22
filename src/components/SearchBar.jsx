@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import location from "../assets/location.svg";
 import Search from "./Search";
 import ShowResult from "./ShowResult";
+import NextDayShowResult from "./NextDayShowResult";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -69,6 +70,8 @@ const SearchBar = () => {
           }
         })
         .then((data) => {
+
+          console.log(data);
           // notify()
           setError(data.Error);
           setData(data);
@@ -129,7 +132,7 @@ const SearchBar = () => {
         />
       </section>
 
-      <section className="flex flex-1 w-[260px] bg-red-100">
+      <section className="flex flex-col flex-1 w-[260px]">
         <ShowResult
           Asr={Asr}
           Dhuhr={Dhuhr}
@@ -137,6 +140,9 @@ const SearchBar = () => {
           Isha={Isha}
           Maghrib={Maghrib}
         />
+        {/* <br className="bg-blue-900 "/> */}
+        <span className="w-full bg-blue-900 h-5"></span>
+        <NextDayShowResult />
       </section>
 
       {/* {error && (
