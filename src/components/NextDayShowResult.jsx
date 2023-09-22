@@ -7,36 +7,36 @@ import magrib from "../assets/magrib.png"
 
 const NextDayShowResult = ({Asr, Dhuhr, Fajr, Isha, Maghrib}) => {
   return (
-    <div className='flex flex-1 font-bold text-black w-full bg-slate-600'>
+    <div className='flex flex-1 font-bold text-white w-full gap-3 bg-blue-900 pb-10 outline-none border-none'>
      
-     <section className='bg-transparent flex flex-1 justify-center items-center flex-col'>
-      <img src={fajor} alt="" className='w-10 h-10 p-2 rounded-md'/>
-      <p className='text-black text-center bg-transparent'> Fajor </p>
-      <p className='text-center text-black bg-transparent'> 4.13 AM</p>
+     <section className='bg-transparent flex flex-1 justify-center items-center flex-col '>
+      <img src={fajor} alt="" className='w-14 h-14 p-2 rounded-md'/>
+      <p className='text-center bg-transparent mt-3 font-bold text-lg'> Fajor </p>
+      <p className='text-center bg-transparent text-sm'> 4.13 AM</p>
      </section>
 
      <section className='bg-transparent flex flex-1 justify-center items-center flex-col'>
-      <img src={fajor} alt="" className='w-10 h-10 p-2 rounded-md'/>
-      <p className='text-black text-center bg-transparent'> Dhor </p>
-      <p className='text-center text-black bg-transparent'> 12.13 PM</p>
+      <img src={johor} alt="" className='w-14 h-14 p-2 rounded-md'/>
+      <p className='text-center bg-transparent mt-3 font-bold text-lg'> Dhuhr </p>
+      <p className='text-center bg-transparent text-sm'> 12.13 PM</p>
      </section>
 
      <section className='bg-transparent flex flex-1 justify-center items-center flex-col'>
-      <img src={fajor} alt="" className='w-10 h-10 p-2 rounded-md'/>
-      <p className='text-black text-center bg-transparent'> Fajor </p>
-      <p className='text-center text-black bg-transparent'> 4.13 AM</p>
+      <img src={asor} alt="" className='w-14 h-14 p-2 rounded-md'/>
+      <p className='text-center bg-transparent mt-3 font-bold text-lg'> Asor </p>
+      <p className='text-center bg-transparent text-sm'> 4.13 AM</p>
      </section>
 
      <section className='bg-transparent flex flex-1 justify-center items-center flex-col'>
-      <img src={fajor} alt="" className='w-10 h-10 p-2 rounded-md'/>
-      <p className='text-black text-center bg-transparent'> Fajor </p>
-      <p className='text-center text-black bg-transparent'> 4.13 AM</p>
+      <img src={magrib} alt="" className='w-14 h-14 p-2 rounded-md'/>
+      <p className='text-center bg-transparent mt-3 font-bold text-lg'> Margrib </p>
+      <p className='text-center bg-transparent text-sm'> 4.13 AM</p>
      </section>
 
      <section className='bg-transparent flex flex-1 justify-center items-center flex-col'>
-      <img src={fajor} alt="" className='w-10 h-10 p-2 rounded-md'/>
-      <p className='text-black text-center bg-transparent'> Fajor </p>
-      <p className='text-center text-black bg-transparent'> 4.13 AM</p>
+      <img src={esha} alt="" className='w-14 h-14 p-2 rounded-md'/>
+      <p className='text-center bg-transparent mt-3 font-bold text-lg'> Esha </p>
+      <p className='text-center bg-transparent text-sm'> 4.13 AM</p>
      </section>
 
       {/* <section className="flex flex-1 gap-5 pt-4 px-2 bg-transparent justify-evenly items-center">

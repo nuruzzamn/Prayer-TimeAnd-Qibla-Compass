@@ -9,7 +9,7 @@ const Fragment = () => {
         </button>
         <button
           className="hover:bg-black  
-        bg-coral-red text-white border-coral-red w-36 sm:w-[210px] p-2"
+          bg-blue-500 text-white w-36 sm:w-[210px] p-2"
         >
           Compass
         </button>

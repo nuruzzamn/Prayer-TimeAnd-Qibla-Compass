@@ -132,7 +132,7 @@ const SearchBar = () => {
         />
       </section>
 
-      <section className="flex flex-col flex-1 w-[260px]">
+      <section className="flex flex-col flex-1 w-[350px] outline-none border-none">
         <ShowResult
           Asr={Asr}
           Dhuhr={Dhuhr}
@@ -141,7 +141,8 @@ const SearchBar = () => {
           Maghrib={Maghrib}
         />
         {/* <br className="bg-blue-900 "/> */}
-        <span className="w-full bg-blue-900 h-5"></span>
+        <span className="w-full bg-blue-900 h-5 outline-none border-none"></span>
+        <p className="bg-blue-900 text-center text-white pb-3 text-xl">Tomorrow's prayer time</p>
         <NextDayShowResult />
       </section>
 
