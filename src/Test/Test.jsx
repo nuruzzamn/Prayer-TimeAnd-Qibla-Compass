@@ -83,6 +83,12 @@ function Test() {
             transform: `rotate(${compass}deg)`,
           }}
         ></div>
+        <div
+          className="w-6 h-6 bg-yellow-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            transform: `rotate(${compass}deg)`,
+          }}
+        ></div>
       </div>
       <div className="mt-4 text-xl font-bold">
         Qibla Direction: {pointDegree !== null ? pointDegree.toFixed(2) : ""}
