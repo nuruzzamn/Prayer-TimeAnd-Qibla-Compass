@@ -1,90 +1,95 @@
-import React, { useState, useEffect } from 'react';
+// src/components/QiblaCompass.js
+// import CompasImg from "../assets/CompasImg.png"
+import bgMocca from "../assets/mocca.jpg";
+import React, { useEffect, useState } from "react";
 
-const Test = () => {
-  const [location, setLocation] = useState('');
-  const [prayerTimes, setPrayerTimes] = useState([]);
-  const [loading, setLoading] = useState(false);
+function Test() {
+  const [compass, setCompass] = useState(0);
+  const [pointDegree, setPointDegree] = useState(null);
 
-  // Handle location input change with debouncing
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
+  const init = () => {
+    navigator.geolocation.getCurrentPosition(locationHandler);
+    window.addEventListener("deviceorientation", handler, true);
   };
 
-  // Handle form submission to fetch prayer times
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Start loading indicator
-    setLoading(true);
-    // Call a function to fetch prayer times based on the location
-    fetchPrayerTimes(location);
+  const handler = (e) => {
+    const alpha = e.alpha;
+    setCompass(alpha);
+    const compassCircle = document.querySelector(".compass-circle");
+    const myPoint = document.querySelector(".my-point");
+
+    compassCircle.style.transform = `translate(-50%, -50%) rotate(${-alpha}deg)`;
+
+    // ±15 degree
+    if (
+      (pointDegree < Math.abs(alpha) &&
+        pointDegree + 15 > Math.abs(alpha)) ||
+      pointDegree > Math.abs(alpha + 15) ||
+      pointDegree < Math.abs(alpha)
+    ) {
+      myPoint.style.opacity = 0;
+    } else if (pointDegree) {
+      myPoint.style.opacity = 1;
+    }
+  };
+
+  const locationHandler = (position) => {
+    const { latitude, longitude } = position.coords;
+    const degree = calcDegreeToPoint(latitude, longitude);
+
+    if (degree < 0) {
+      setPointDegree(degree + 360);
+    } else {
+      setPointDegree(degree);
+    }
+  };
+
+  const calcDegreeToPoint = (latitude, longitude) => {
+    // Qibla geolocation
+    const point = {
+      lat: 21.422487,
+      lng: 39.826206,
+    };
+
+    const phiK = (point.lat * Math.PI) / 180.0;
+    const lambdaK = (point.lng * Math.PI) / 180.0;
+    const phi = (latitude * Math.PI) / 180.0;
+    const lambda = (longitude * Math.PI) / 180.0;
+    const psi =
+      (180.0 / Math.PI) *
+      Math.atan2(
+        Math.sin(lambdaK - lambda),
+        Math.cos(phi) * Math.tan(phiK) -
+          Math.sin(phi) * Math.cos(lambdaK - lambda)
+      );
+    return Math.round(psi);
   };
 
   useEffect(() => {
-    if (location) {
-      // Debounce the input to wait for a short pause (e.g., 500ms) before making the request
-      const timer = setTimeout(() => {
-        handleSubmit({ preventDefault: () => {} });
-      }, 500);
-
-      return () => clearTimeout(timer);
-    }
-  }, [location]);
-
-  const fetchPrayerTimes = (location) => {
-    const apiUrl = "https://muslimsalat.com/london.json?key=80bf63d2909ced2719313f42ac3d44d3";
-
-    fetch(apiUrl,
-      {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        mode: "no-cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          // "Content-Type": "application/json",
-          'Content-Type': 'application/x-www-form-urlencoded',
-        }})
-      .then((response) => {
-        console.log("Res", response)
-        if (!response.ok) {
-          throw new Error('Error: Unable to fetch data');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Update the state with fetched data and stop loading indicator
-
-        console.log("Data", data)
-        setPrayerTimes(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        // Handle the error (e.g., display an error message) and stop loading indicator
-        setLoading(false);
-      });
-  };
+    init();
+  }, []);
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter location"
-          value={location}
-          onChange={handleLocationChange}
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="w-40 h-40 relative">
+        <img
+          src={bgMocca} // Add your mosque image here
+          alt="Mosque"
+          className="w-40 h-40 absolute top-0 left-0 transform -rotate-90"
         />
-        <button type="submit">Get Prayer Times</button>
-      </form>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          {/* Display prayer times here using the 'prayerTimes' state */}
-          {/* <pre>{JSON.stringify(prayerTimes, null, 2)}</pre> */}
-        </div>
-      )}
+        <div
+          className="w-2 h-16 bg-red-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-full rotate-[180deg]"
+          style={{
+            transform: `rotate(${compass}deg)`,
+          }}
+        ></div>
+      </div>
+      <div className="mt-4 text-xl font-bold">
+        Qibla Direction: {pointDegree !== null ? pointDegree.toFixed(2) : ""}
+        &deg;
+      </div>
     </div>
   );
-};
+}
 
 export default Test;
