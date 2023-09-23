@@ -1,9 +1,7 @@
 import React from "react";
 
 const Search = ({ onChangeHandle, searchData, initialData, onclick }) => {
-  // const onclick = () => {
-  //   console.log('click');
-  // }
+
   return (
     <div className="bg-transparent rounded-full focus:outline-none">
       <section className="flex flex-row justify-between bg-none border border-slate-gray p-1 rounded-full">
@@ -17,14 +15,14 @@ const Search = ({ onChangeHandle, searchData, initialData, onclick }) => {
           required
         />
 
-        <span
+        <button
           className="hover:bg-black  
         bg-coral-red text-white font-semibold border-coral-red
           flex justify-center items-center gap-2 px-3 py-2 border font-montserrat text-sm leading-none rounded-full"
           onClick={onclick}
         >
           <p className="bg-transparent cursor-pointer">Search</p>
-        </span>
+        </button>
       </section>
     </div>
   );

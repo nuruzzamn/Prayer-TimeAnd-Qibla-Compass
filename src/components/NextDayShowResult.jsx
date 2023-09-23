@@ -8,7 +8,7 @@ import magrib from "../assets/magrib.png";
 const NextDayShowResult = ({ tomorrowsPrayerTime }) => {
   const { tAsr, tDhuhr, tFajr, tIsha, tMaghrib } = tomorrowsPrayerTime;
 
-  console.log("tomorrow", tomorrowsPrayerTime.tMaghrib);
+  // console.log("tomorrow", tomorrowsPrayerTime.tMaghrib);
   return (
     <div className="flex flex-1 font-bold text-white w-full gap-3 bg-blue-900 pb-10 outline-none border-none">
       <section className="bg-transparent flex flex-1 justify-center items-center flex-col ">

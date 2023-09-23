@@ -11,6 +11,7 @@ const SearchBar = () => {
   const [searchData, setSearchData] = useState("");
   const [data, setData] = useState({});
   const [error, setError] = useState("");
+  const [isClick, setIsClick] = useState(false);
 
   const api = `https://dailyprayer.abdulrcs.repl.co/api/${
     searchData || initialData
@@ -23,7 +24,7 @@ const SearchBar = () => {
   const notify = () =>
     toast.error("Enter a valid Location!", {
       position: "top-center",
-      autoClose: 1000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: false,
       pauseOnHover: true,
@@ -40,12 +41,10 @@ const SearchBar = () => {
     setInitialData("");
   };
 
-  const onclick = () => {
+  const onclick = (e) => {
     setSearchData("");
     setInitialData("");
     apiDataHandle();
-
-    error && notify();
   };
 
   useEffect(() => {
@@ -71,7 +70,7 @@ const SearchBar = () => {
         })
         .then((data) => {
           console.log(data);
-          // notify()
+          data.Error && notify();
           setError(data.Error);
           setData(data);
         })
